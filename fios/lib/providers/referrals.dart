@@ -48,10 +48,19 @@ class Referrals extends ChangeNotifier {
     if (value.isEmpty) {
       _referrals = _refsCopy;
     }
-
-    _referrals = _referrals
-        .where((ref) => ref.name.toLowerCase().contains(value.toLowerCase()))
-        .toList();
+    _referrals = _referrals.where((ref) {
+      return ref.name.toLowerCase().contains(value.toLowerCase())
+          ? ref.name.toLowerCase().contains(value.toLowerCase())
+          : ref.address.toLowerCase().contains(value.toLowerCase())
+              ? ref.address.toLowerCase().contains(value.toLowerCase())
+              : ref.apt.toLowerCase().contains(value.toLowerCase())
+                  ? ref.apt.toLowerCase().contains(value.toLowerCase())
+                  : ref.lastName.toLowerCase().contains(value.toLowerCase());
+      //     ref.lastName.toLowerCase().contains(value.toLowerCase()) ||
+      //     ref.apt.toLowerCase().contains(value.toLowerCase()) ||
+      //     ref.address.toLowerCase().contains(value.toLowerCase()) ||
+      //     ref.mon.toLowerCase().contains(value.toLowerCase());
+    }).toList();
 
     notifyListeners();
   }

@@ -1,5 +1,3 @@
-import 'package:fios/models/referral.dart';
-
 import 'package:fios/providers/auth.dart';
 import 'package:fios/providers/referrals.dart';
 //import 'package:fios/widgets/referral_card.dart';
@@ -28,8 +26,6 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
     'In Progress',
     'Not Sold'
   ];
-
-  List<Referral> referrals = [];
 
   Future<void> _refreshReferrals(BuildContext context) async {
     print("refreshin");
@@ -60,7 +56,7 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
             children: <Widget>[
               Material(
                 child: Container(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(12.0),
                   child: Row(
                     children: <Widget>[
                       Text(
@@ -84,7 +80,7 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                 child: TextField(
                   decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: 'Search...',
+                      hintText: 'Search by name, last name, address or apt #',
                       prefixIcon: Icon(Icons.search)),
                   onChanged: (value) {
                     Provider.of<Referrals>(context).searchReferral(value);

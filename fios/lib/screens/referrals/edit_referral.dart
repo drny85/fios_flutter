@@ -54,6 +54,7 @@ class _EditReferralScreenState extends State<EditReferralScreen> {
                         if (value.isEmpty) {
                           return 'Please enter a name';
                         }
+                        return '';
                       },
                       onChanged: (String value) =>
                           setState(() => widget.referral.name = value),
