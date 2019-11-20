@@ -49,20 +49,22 @@ class Auth extends ChangeNotifier {
       http.Response response =
           await http.post('$kUrl/user/login', body: body, headers: kHeaders);
       if (response.statusCode == 200) {
-        final userData = json.decode(response.body);
+        final userData = json.decode(response.body) as Map<String, dynamic>;
         final token = userData['token'];
-        final user = User.fromJson(userData['user']);
+
+        final user = userData['user'];
 
         _token = token;
-        _user = user;
 
         SharedPreferences prefs = await SharedPreferences.getInstance();
+
         prefs.setString(
             'user_data', json.encode({'token': token, 'user': user}));
 
         notifyListeners();
       } else {
         print(response.statusCode);
+        print(response.body);
       }
     } catch (e) {
       print(e);

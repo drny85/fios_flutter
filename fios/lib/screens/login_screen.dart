@@ -58,6 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextField(
                         textCapitalization: TextCapitalization.none,
                         keyboardType: TextInputType.emailAddress,
+                        autocorrect: false,
                         onChanged: (value) {
                           setState(() {
                             _email = value.trim();

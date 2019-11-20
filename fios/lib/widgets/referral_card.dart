@@ -2,7 +2,6 @@ import 'package:fios/models/referral.dart';
 
 import 'package:fios/screens/referrals/referral_details.dart';
 
-import 'package:fios/utils/date_format.dart';
 import 'package:flutter/material.dart';
 
 class ReferralCard extends StatelessWidget {
@@ -20,7 +19,7 @@ class ReferralCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 10.0),
         child: Container(
           height: 320,
-          width: 275,
+          width: 300,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -75,7 +74,7 @@ class ReferralCard extends StatelessWidget {
                     SizedBox(
                       width: 8.0,
                     ),
-                    Text(FormatDate.format(referral.moveIn)),
+                    Text(referral.moveIn),
                   ],
                 ),
                 SizedBox(

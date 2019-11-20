@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class User {
   String id;
   String name;
-  String lastName;
+
   String email;
   String phone;
   Roles roles;
@@ -11,17 +11,15 @@ class User {
   User({
     @required this.id,
     this.name,
-    this.lastName,
     this.email,
     this.phone,
     this.roles,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
+  factory User.fromJson(Map<String, Object> json) {
     return User(
         id: json['_id'],
         name: json['name'],
-        lastName: json['last_name'],
         email: json['email'],
         phone: json['phone'],
         roles: Roles.fromJson(json['roles']));
@@ -30,14 +28,14 @@ class User {
 
 class Roles {
   bool isAdmin;
-  bool actice;
+  bool active;
   bool coach;
 
-  Roles({this.actice, this.coach, this.isAdmin});
+  Roles({this.active, this.coach, this.isAdmin});
 
-  factory Roles.fromJson(Map<String, dynamic> json) {
+  factory Roles.fromJson(Map<String, bool> json) {
     return Roles(
-      actice: json['active'],
+      active: json['active'],
       isAdmin: json['isAdmin'],
       coach: json['coach'],
     );

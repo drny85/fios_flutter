@@ -1,4 +1,3 @@
-import 'package:fios/providers/auth.dart';
 import 'package:fios/providers/referrals.dart';
 //import 'package:fios/widgets/referral_card.dart';
 import 'package:fios/widgets/referrals_cart_list.dart';
@@ -45,7 +44,7 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
   @override
   Widget build(BuildContext context) {
     final referrals = Provider.of<Referrals>(context).referrals;
-    final user = Provider.of<Auth>(context).user;
+
     return Scaffold(
       body: SafeArea(
         child: RefreshIndicator(
@@ -60,7 +59,7 @@ class _ReferralsScreenState extends State<ReferralsScreen> {
                   child: Row(
                     children: <Widget>[
                       Text(
-                        'Welcome ${user.name.toUpperCase()}',
+                        'Welcome',
                         style: TextStyle(
                           fontSize: 26.0,
                           fontWeight: FontWeight.bold,
